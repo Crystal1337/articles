@@ -1,0 +1,23 @@
+CREATE TABLE `News` (
+    `NewsID` int NOT NULL AUTO_INCREMENT,
+    `Title` varchar(100) NOT NULL,
+    `Description` longtext NOT NULL,
+    `Creation_Date` date NOT NULL,
+    PRIMARY KEY (`NewsID`)
+    );
+    
+CREATE TABLE `Author` (
+    `AuthorID` int NOT NULL AUTO_INCREMENT,
+    `Name` varchar(60) NOT NULL,
+    `Surname` varchar(60) NOT NULL,
+    PRIMARY KEY (`AuthorID`)
+    );
+    
+CREATE TABLE `Author_News` (
+    `Author_News_ID` int NOT NULL AUTO_INCREMENT,
+    `AuthorID` int NOT NULL,
+    `NewsID` int NOT NULL,
+    PRIMARY KEY (`Author_News_ID`),
+    FOREIGN KEY (`AuthorID`) REFERENCES `Author` (`AuthorID`),
+    FOREIGN KEY (`NewsID`) REFERENCES `News` (`NewsID`)
+    );
