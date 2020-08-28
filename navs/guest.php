@@ -1,3 +1,41 @@
+<!-- LOGIN MODAL -->
+
+<div class="modal fade" id="logowanie">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Zaloguj się!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="post" action="action.php">
+            <?php if (isset($_SESSION['loginerror'])) { ?>
+              <div class="form-group text-danger" id="error-message">
+                <p><?php echo $_SESSION['loginerror']; ?></p>
+              </div>
+            <?php } unset($_SESSION['loginerror']); ?>
+          <div class="form-group">
+            <input type="text" class="form-control" id="input-username" name="Username" placeholder="Nazwa użytkownika" required value="<?php echo isset($_SESSION['LastData']['Username']) ? $_SESSION['LastData']['Username'] : '' ?>">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" id="input-haslo" name="Password" placeholder="Hasło" required>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Zamknij okno</button>
+            <input type="hidden" name="do" value="login">
+            <button type="submit" class="btn btn-success">Zaloguj</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LOGIN MODAL -->
+
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 <a class="navbar-brand ml-5 font-weight-bold" href="index.php">
   <img src="img/nav_icon.png" width="30" height="30">
@@ -12,7 +50,7 @@
       <a class="nav-link" href="index.php">Strona główna</a>
     </li>
     <li class="nav-item ml-3">
-      <a class="nav-link" href="#">Nasza redakcja</a>
+      <a class="nav-link" href="redakcja.php">Nasza redakcja</a>
     </li>
   </ul>
   <form class="form-inline my-2 my-lg-0">

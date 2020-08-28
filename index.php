@@ -1,44 +1,8 @@
 <?php require 'premades/head.php' ?>
 
-<!-- LOGIN MODAL -->
-
-<div class="modal fade" id="logowanie">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Zaloguj się!</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form method="post" action="action.php">
-            <?php if (isset($_SESSION['loginerror'])) { ?>
-              <div class="form-group text-danger" id="error-message">
-                <p><?php echo $_SESSION['loginerror']; ?></p>
-              </div>
-            <?php } unset($_SESSION['loginerror']); ?>
-          <div class="form-group">
-            <input type="text" class="form-control" id="input-username" name="Username" placeholder="Nazwa użytkownika" required value="<?php echo isset($_SESSION['LastData']['Username']) ? $_SESSION['LastData']['Username'] : '' ?>">
-          </div>
-          <div class="form-group">
-            <input type="password" class="form-control" id="input-haslo" name="Password" placeholder="Hasło" required>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Zamknij okno</button>
-            <input type="hidden" name="do" value="login">
-            <button type="submit" class="btn btn-success">Zaloguj</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- LOGIN MODAL -->
-
-
 <!-- ADD ARTICLE MODAL -->
+
+
 <div class="modal fade" id="add_news">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -66,7 +30,7 @@
           <div class="form-group">
           <label for="select-authors" style="color:black;">Wybierz innych autorów odpowiedzialnych za artykuł:(można wiele)</label>
           <select multiple class="form-control" id="select-authors" name="Authors[]">
-            <?php $tmp = "SELECT * FROM `Author`";
+            <?php $tmp = "SELECT * FROM `Author` WHERE `AuthorID` NOT IN ({$_SESSION['user']['AuthorID']})";
                   $result = $db_conn->query($tmp);
                   while($row = $result->fetch_assoc())
                   {
@@ -163,10 +127,6 @@
 
         <!-- SUCCESS REMOVE NEWS MODAL -->
 
-
-  <body id="index">
-
-
   <!--NAVBAR-->
 
 <?php
@@ -182,10 +142,21 @@ else
 
   <!--NAVBAR-->
 
+
+  <body id="index">
 <div class="container" id="index">
 
   <!--CAROUSEL WITH 3 NEWEST POSTS-->
 
+  <?php $sql1 = "SELECT * FROM `News` ORDER BY `NewsID` DESC LIMIT 3";
+  $result2 = $db_conn->query($sql1);
+  $newsarray = array();
+  $index = 0;
+  while($top3 = $result2->fetch_assoc())
+  {
+    $newsarray[$index] = $top3;
+    $index++;
+  }?>
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -194,24 +165,21 @@ else
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img class="d-block w-100" src="img/news1.jpg" alt="First slide">
+        <img class="d-block w-100" src="<?= $newsarray[0]['tmp_img_src']?>" alt="First slide">
         <div class="carousel-caption d-none d-md-block">
-          <h5>Tekst pierwszego newsa</h5>
-          <p>krotki opis</p>
+          <a id="carousel" href="news.php?id=<?=$newsarray[0]['NewsID']?>"<h5><?= $newsarray[0]['Title']?></h5></a>
         </div>
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="img/news2.jpg" alt="Second slide">
+        <img class="d-block w-100" src="<?= $newsarray[1]['tmp_img_src']?>" alt="Second slide">
         <div class="carousel-caption d-none d-md-block">
-          <h5>Tekst drugiego newsa</h5>
-          <p>krotki opis</p>
+          <a id="carousel" href="news.php?id=<?=$newsarray[1]['NewsID']?>"<h5><?= $newsarray[1]['Title']?></h5></a>
         </div>
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="img/news3.jpg" alt="Third slide">
+        <img class="d-block w-100" src="<?= $newsarray[2]['tmp_img_src']?>" alt="Third slide">
         <div class="carousel-caption d-none d-md-block">
-          <h5>Tekst trzeciego newsa</h5>
-          <p>krotki opis</p>
+          <a id="carousel" href="news.php?id=<?=$newsarray[2]['NewsID']?>"<h5><?= $newsarray[2]['Title']?></h5></a>
         </div>
       </div>
     </div>
@@ -231,7 +199,7 @@ else
   <!--NEWS BELOW CAROUSEL -->
 
 <div class="container" id="news">
-  <?php $stmt = "SELECT * FROM `News`";
+  <?php $stmt = "SELECT * FROM `News` ORDER BY `NewsID` DESC";
   $result = $db_conn->query($stmt);
   $amount=0;
   while($news = $result->fetch_assoc())
@@ -246,7 +214,7 @@ else
     echo '<h3>'.$news['Title'].'</h3>';
     echo '</a>';
     echo '<div class="row">';
-    echo '<div class="col">';
+    echo '<div class="col align-bottom">';
     echo '<i class="fas fa-book-open mr-2"></i>';
     $tmp = "SELECT * FROM `Author_News` INNER JOIN `Author` ON `Author_News`.`AuthorID`=`Author`.`AuthorID` WHERE `Author_News`.`NewsID`={$news['NewsID']}";
     $tmpresult = $db_conn->query($tmp);

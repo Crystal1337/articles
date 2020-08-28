@@ -23,12 +23,14 @@ body#index
   margin-top:10px;
   background-color: #212837!important;
   border-radius: 10px;
+  max-width: 1250px;
 }
 .container#article
 {
   margin-top:70px;
   background-color: #212837!important;
   border-radius: 10px;
+  max-width: 1250px;
 }
 
 .navbar-dark .navbar-nav .nav-link
@@ -49,4 +51,15 @@ a#news:hover
 a#news
 {
   color:darkgrey;
+}
+
+a#carousel
+{
+  font-size: 2em;
+  color:white;
+}
+a#carousel:hover
+{
+  text-decoration: none;
+  color:lightgrey;
 }

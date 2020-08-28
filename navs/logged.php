@@ -12,7 +12,7 @@
       <a class="nav-link" href="index.php">Strona główna</a>
     </li>
     <li class="nav-item ml-3">
-      <a class="nav-link" href="#">Nasza redakcja</a>
+      <a class="nav-link" href="redakcja.php">Nasza redakcja</a>
     </li>
   </ul>
   <form class="form-inline my-2 my-lg-0 mr-5">

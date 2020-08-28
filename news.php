@@ -113,14 +113,17 @@ require_once 'navs/guest.php';
   <div class="row">
     <div class="col-10">
       <img class="pt-2 mx-auto d-block w-100" src="<?=$row['tmp_img_src']?>">
-      <h1 class="text-center"> <?= $row['Title'];?></h1>
+      <h1 class="text-left mb-4 mt-2"> <?= $row['Title'];?></h1>
       <p class="text-left"> <?= nl2br($row['Description']);?></p>
     </div>
     <div class="col-2">
 <?php
+if(isset($_SESSION['user']))
+{
 echo '<button type="button" class="btn btn-success mt-3" data-toggle="modal" data-target="#Edit_News" data-id='.$row['NewsID'].'>Edytuj</button>';
 echo '<br>';
 echo '<button type="button" class="btn btn-danger mt-3" data-toggle="modal" data-target="#Remove_News" data-id='.$row['NewsID'].'>Usuń</button>';
+}
 ?>
 </div>
 </div>
@@ -149,6 +152,15 @@ echo '<button type="button" class="btn btn-danger mt-3" data-toggle="modal" data
     $('#edit_news').modal('show');
     <?php }else if($_GET['success']=="true"){ ?>
       $('#success_edit').modal('show');
+      <?php }} ?>
+</script>
+
+<script type="text/javascript">
+  <?php if(isset($_GET['logowanie']))
+  { if($_GET['logowanie']=="false"){?>
+    $('#logowanie').modal('show');
+    <?php }else if($_GET['logowanie']=="true"){ ?>
+      $('#sukces').modal('show');
       <?php }} ?>
 </script>
 
