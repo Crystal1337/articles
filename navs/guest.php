@@ -17,7 +17,8 @@
               </div>
             <?php } unset($_SESSION['loginerror']); ?>
           <div class="form-group">
-            <input type="text" class="form-control" id="input-username" name="Username" placeholder="Nazwa użytkownika" required value="<?php echo isset($_SESSION['LastData']['Username']) ? $_SESSION['LastData']['Username'] : '' ?>">
+            <input type="text" class="form-control" id="input-username" name="Username" placeholder="Nazwa użytkownika"
+            required value="<?php echo isset($_SESSION['LastData']['Username']) ? $_SESSION['LastData']['Username'] : '' ?>">
           </div>
           <div class="form-group">
             <input type="password" class="form-control" id="input-haslo" name="Password" placeholder="Hasło" required>
@@ -40,7 +41,8 @@
 <a class="navbar-brand ml-5 font-weight-bold" href="index.php">
   <img src="img/nav_icon.png" width="30" height="30">
   News site</a>
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
   <span class="navbar-toggler-icon"></span>
 </button>
 
@@ -52,14 +54,14 @@
     <li class="nav-item ml-3">
       <a class="nav-link" href="redakcja.php">Nasza redakcja</a>
     </li>
+    <li class="nav-item ml-3">
+      <a class="nav-link" href="top3.php">Top 3 tygodnia</a>
+    </li>
   </ul>
-  <form class="form-inline my-2 my-lg-0">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-  </form>
     <ul class="navbar-nav mr-3">
   <li class="nav-item">
-      <a class="nav-link" data-toggle="modal" style="color:green;" data-target="#logowanie" href="#"><i class="mr-2 fas fa-sign-in-alt"></i>Logowanie</a>
+      <a class="nav-link" data-toggle="modal" style="color:green;" data-target="#logowanie" href="#">
+        <i class="mr-2 fas fa-sign-in-alt"></i>Logowanie</a>
     </li>
   </ul>
 </div>

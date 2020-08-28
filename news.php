@@ -4,7 +4,7 @@ $stmt = $db_conn->prepare("SELECT * FROM `News` WHERE `NewsID` = ?");
 	$stmt->bind_param("i", $_GET['id']);
 	$stmt->execute();
 	$result = $stmt->get_result();
-	$row = $result->fetch_assoc();
+	$row1 = $result->fetch_assoc();
 ?>
 
 
@@ -112,17 +112,17 @@ require_once 'navs/guest.php';
 <div class="container" id="article">
   <div class="row">
     <div class="col-10">
-      <img class="pt-2 mx-auto d-block w-100" src="<?=$row['tmp_img_src']?>">
-      <h1 class="text-left mb-4 mt-2"> <?= $row['Title'];?></h1>
-      <p class="text-left"> <?= nl2br($row['Description']);?></p>
+      <img class="pt-2 mx-auto d-block w-100" src="<?=$row1['tmp_img_src']?>">
+      <h1 class="text-left mb-4 mt-2"> <?= $row1['Title'];?></h1>
+      <p class="text-left"> <?= nl2br($row1['Description']);?></p>
     </div>
     <div class="col-2">
 <?php
 if(isset($_SESSION['user']))
 {
-echo '<button type="button" class="btn btn-success mt-3" data-toggle="modal" data-target="#Edit_News" data-id='.$row['NewsID'].'>Edytuj</button>';
+echo '<button type="button" class="btn btn-success mt-3" data-toggle="modal" data-target="#Edit_News" data-id='.$row1['NewsID'].'>Edytuj</button>';
 echo '<br>';
-echo '<button type="button" class="btn btn-danger mt-3" data-toggle="modal" data-target="#Remove_News" data-id='.$row['NewsID'].'>Usuń</button>';
+echo '<button type="button" class="btn btn-danger mt-3" data-toggle="modal" data-target="#Remove_News" data-id='.$row1['NewsID'].'>Usuń</button>';
 }
 ?>
 </div>

@@ -3,7 +3,7 @@ $stmt = $db_conn->prepare("SELECT * FROM `Author` WHERE `AuthorID` = ?");
 	$stmt->bind_param("i", $_GET['id']);
 	$stmt->execute();
 	$result = $stmt->get_result();
-	$row = $result->fetch_assoc();
+	$row1 = $result->fetch_assoc();
  ?>
 
 <!--NAVBAR-->
@@ -24,9 +24,12 @@ require_once 'navs/guest.php';
 <body id="index">
 
 
+<!-- ARTYKUŁY REDAKTORA -->
+
 <div class="container" id="article">
-  <h2 class="text-center pt-2"> Wszystkie artykuły redaktora: <?= $row['Name'].' '.$row["Surname"];?></h2>
-  <?php $stmt = "SELECT * FROM `News` INNER JOIN `Author_News` ON `Author_News`.`NewsID`=`News`.`NewsID` INNER JOIN `Author` ON `Author`.`AuthorID`=`Author_News`.`AuthorID` WHERE `Author`.`AuthorID` = {$_GET['id']}";
+  <h2 class="text-center pt-2"> Wszystkie artykuły redaktora: <?= $row1['Name'].' '.$row1["Surname"];?></h2>
+  <?php $stmt = "SELECT * FROM `News` INNER JOIN `Author_News` ON `Author_News`.`NewsID`=`News`.`NewsID` INNER JOIN `Author`
+	ON `Author`.`AuthorID`=`Author_News`.`AuthorID` WHERE `Author`.`AuthorID` = {$_GET['id']} ORDER BY `News`.`Creation_Date` DESC";
   $result = $db_conn->query($stmt);
   $amount=0;
   while($news = $result->fetch_assoc())
@@ -43,7 +46,8 @@ require_once 'navs/guest.php';
     echo '<div class="row">';
     echo '<div class="col">';
     echo '<i class="fas fa-book-open mr-2"></i>';
-    $tmp = "SELECT * FROM `Author_News` INNER JOIN `Author` ON `Author_News`.`AuthorID`=`Author`.`AuthorID` WHERE `Author_News`.`NewsID`={$news['NewsID']}";
+    $tmp = "SELECT * FROM `Author_News` INNER JOIN `Author` ON `Author_News`.`AuthorID`=`Author`.`AuthorID` WHERE
+		`Author_News`.`NewsID`={$news['NewsID']}";
     $tmpresult = $db_conn->query($tmp);
     $authorstmp = "";
     while($authors = $tmpresult->fetch_assoc())
@@ -68,6 +72,10 @@ require_once 'navs/guest.php';
 
 </div>
 
+<!-- ARTYKUŁY REDAKTORA -->
+
+
+<!-- SKRYPTY -->
 
 <script type="text/javascript">
   <?php if(isset($_GET['logowanie']))
@@ -77,6 +85,8 @@ require_once 'navs/guest.php';
       $('#sukces').modal('show');
       <?php }} ?>
 </script>
+
+<!-- SKRYPTY -->
 
 </body>
 
