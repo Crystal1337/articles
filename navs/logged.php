@@ -9,23 +9,23 @@
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
   <ul class="navbar-nav mr-auto ml-5">
     <li class="nav-item active">
-      <a class="nav-link" href="#">Strona główna</a>
-    </li>
-    <li class="nav-item ml-3">
-      <a class="nav-link" href="#">Newsy</a>
+      <a class="nav-link" href="index.php">Strona główna</a>
     </li>
     <li class="nav-item ml-3">
       <a class="nav-link" href="#">Nasza redakcja</a>
     </li>
   </ul>
+  <form class="form-inline my-2 my-lg-0 mr-5">
+    <input class="form-control mr-sm-2" type="search" placeholder="Wyszukaj" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
     <ul class="navbar-nav mr-3">
+      <li class="nav-item mr-3">
+        <a class="nav-link" data-toggle="modal" data-target="#add_news"style="color:green;" href="#"><i class="mr-2 fas fa-plus"></i>Dodaj artykuł</a>
+      </li>
   <li class="nav-item">
       <a class="nav-link" style="color:red;" href="action.php?do=logout"><i class="mr-2 fas fa-sign-out-alt"></i>Wyloguj</a>
     </li>
   </ul>
-  <form class="form-inline my-2 my-lg-0">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-  </form>
 </div>
 </nav>

@@ -24,6 +24,12 @@ body#index
   background-color: #212837!important;
   border-radius: 10px;
 }
+.container#article
+{
+  margin-top:70px;
+  background-color: #212837!important;
+  border-radius: 10px;
+}
 
 .navbar-dark .navbar-nav .nav-link
 {
@@ -32,4 +38,15 @@ body#index
 .navbar-dark:hover .navbar-nav:hover .nav-link:hover
 {
   color: white;
+}
+
+a#news:hover
+{
+  text-decoration: none;
+  color:lightgrey;
+}
+
+a#news
+{
+  color:darkgrey;
 }

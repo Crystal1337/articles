@@ -9,23 +9,20 @@
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
   <ul class="navbar-nav mr-auto ml-5">
     <li class="nav-item active">
-      <a class="nav-link" href="#">Strona główna</a>
-    </li>
-    <li class="nav-item ml-3">
-      <a class="nav-link" href="#">Newsy</a>
+      <a class="nav-link" href="index.php">Strona główna</a>
     </li>
     <li class="nav-item ml-3">
       <a class="nav-link" href="#">Nasza redakcja</a>
-    </li>
-  </ul>
-    <ul class="navbar-nav mr-3">
-  <li class="nav-item" id="logowanie">
-      <a class="nav-link" data-toggle="modal" style="color:green;" data-target="#logowanie" href="#"><i class="mr-2 fas fa-sign-in-alt"></i>Logowanie</a>
     </li>
   </ul>
   <form class="form-inline my-2 my-lg-0">
     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
   </form>
+    <ul class="navbar-nav mr-3">
+  <li class="nav-item">
+      <a class="nav-link" data-toggle="modal" style="color:green;" data-target="#logowanie" href="#"><i class="mr-2 fas fa-sign-in-alt"></i>Logowanie</a>
+    </li>
+  </ul>
 </div>
 </nav>
