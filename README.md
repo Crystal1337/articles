@@ -13,7 +13,7 @@ Korzystanie z aplikacji:
 1. Jeśli wszystko zostało skonfigurowane poprawnie aplikacja jest dostępna w przeglądarce pod adresem "localhost/articles",
 2. Strona główna prezentuje karuzele z 3-ema najnowszymi newsami
 3. Pod karuzela znajduje sie lista wszystkich newsów
-4. Aby dodać/edytować/usunąć artykuł użytkownik musi być zalogowany. Nazwy użytkownika oraz hasła znajdują się niezakodowane w bazie danych w tabeli "Author",
+4. Aby dodać/edytować/usunąć artykuł użytkownik musi być zalogowany. Nazwy użytkownika oraz hasła znajdują się niezakodowane w bazie danych w tabeli "Author", (przykładowym może być username: "michal.nowak" hasło: "123")
 5. Po zalogowaniu przycisk dodania artykułu znajduje się na pasku nawigacyjnym u góry strony, natomiast w celu edycji lub usunięcia artykułu należy przejść bezpośrednio do szczegółowego jego opisu klikając w obrazek lub tytuł,
 6. Lista redaktorów z przyciskami do ich artykułów znajduje się na pasku nawigacyjnym pod "Nasza redakcja", a 3 najczęściej postujących redaktorów pod "Top 3 tygodnia"
 7. Lista artykułów danego redaktora zostanie wyświetlona po naciśnięciu przycisku "Artykuły" lub "Wszystkie artykuły" w zależności, która strona jest wyświetlana.
