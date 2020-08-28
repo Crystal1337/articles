@@ -3,13 +3,12 @@ Wymagania:
 1. XAMPP - https://www.apachefriends.org/pl/index.html
 
 Jak skonfigurować projekt:
-1. Potrzebny jest na komputerze pakiet XAMPP,
-2. Po zainstalowaniu oprogramowania folder projektu tj. "articles-master" (można zmienić) należy wrzucić do folderu xampp/htdocs,
+1. Po zainstalowaniu oprogramowania XAMPP folder projektu tj. "articles-master" (można zmienić) należy wrzucić do folderu xampp/htdocs,
 2. Następnie należy włączyć pakiet XAMPP oraz uruchomić serwisy Apache i MySQL,
-4. W przeglądarce wpisać adres "localhost",
-5. W prawym górnym rogu wejść w "phpMyAdmin",
-6. W panelu po lewej stronie kliknąć "Nowa" w celu stworzenia bazy danych. Wprowadzić "articles" jako nazwę oraz wybrać "utf8_polish_ci" w oknie obok,
-7. Na górnym pasku wejśc w opcję "Import" następnie wybrać plik "articles.sql" z folderu "database" w projekcie i nacisnąć przycisk "Wykonaj".
+3. W przeglądarce wpisać adres "localhost",
+4. W prawym górnym rogu wejść w "phpMyAdmin",
+5. W panelu po lewej stronie kliknąć "Nowa" w celu stworzenia bazy danych. Wprowadzić "articles" jako nazwę oraz wybrać "utf8_polish_ci" w oknie obok,
+6. Na górnym pasku wejśc w opcję "Import" następnie wybrać plik "articles.sql" z folderu "database" w projekcie i nacisnąć przycisk "Wykonaj".
 
 Korzystanie z aplikacji:
 1. Jeśli wszystko zostało skonfigurowane poprawnie aplikacja jest dostępna w przeglądarce pod adresem "localhost/articles-master" (localhost/nazwa_folderu_projektu jeśli była zmieniona),
